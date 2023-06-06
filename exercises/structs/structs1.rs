@@ -9,6 +9,16 @@ struct ColorClassicStruct {
     // TODO: Something goes here
 }
 
+impl ColorClassicStruct {
+    fn new(red: i32, green: i32, blue: i32) -> ColorClassicStruct {
+        ColorClassicStruct {
+            red,
+            green,
+            blue,
+        }
+    }
+}
+
 struct ColorTupleStruct(i32, i32, i32/* TODO: Something goes here */);
 
 #[derive(Debug)]
@@ -21,11 +31,7 @@ mod tests {
     #[test]
     fn classic_c_structs() {
         // TODO: Instantiate a classic c struct!
-        let green = ColorClassicStruct{
-            red: 0,
-            green: 255,
-            blue: 0,
-        };
+        let green = ColorClassicStruct::new(0, 255, 0);
 
         assert_eq!(green.red, 0);
         assert_eq!(green.green, 255);
@@ -45,8 +51,8 @@ mod tests {
     #[test]
     fn unit_structs() {
         // TODO: Instantiate a unit-like struct!
-        // let unit_like_struct =
-        let message = format!("{:?}s are fun!", UnitLikeStruct);
+        let unit_like_struct = UnitLikeStruct;
+        let message = format!("{:?}s are fun!", unit_like_struct);
 
         assert_eq!(message, "UnitLikeStructs are fun!");
     }
